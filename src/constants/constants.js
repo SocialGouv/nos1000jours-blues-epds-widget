@@ -8,6 +8,13 @@ export const STORAGE_TEST_DEMOGRAPHIC_ID = "testDemographicId"
 export const STORAGE_TEST_DEMOGRAPHIC_DPT_CODE = "testDemographicDptCode"
 export const STORAGE_TEST_DEMOGRAPHIC_DPT_LIBELLE = "testDemographicDptLibelle"
 
+export const STORAGE_DEMOGRAPHIC_DPT_CODE = "demographicDptCode"
+export const STORAGE_DEMOGRAPHIC_SITUATIONS = "demographicSituations"
+export const STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE =
+  "demographicNbMoisDeGrossesse"
+export const STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT =
+  "demographicNbMoisDuDernierEnfant"
+
 export const STORAGE_SCORE = "score"
 export const STORAGE_SCORE_LEVEL_MACARON = "scoreLevelForMacaron"
 export const STORAGE_SCORE_LEVEL_MOOD = "scoreLevelForMood"

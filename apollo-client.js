@@ -97,7 +97,11 @@ export const EPDS_CONTACT_INFORMATION = gql`
     $moyen: String
     $horaires: String
     $scoreQuestionDix: String
-    $langue: String
+    $score: String
+    $situation: String
+    $departement: String
+    $nbMoisDeGrossesse: String
+    $nbMoisDuDernierEnfant: String
   ) {
     epdsContact(
       email: $email
@@ -107,6 +111,11 @@ export const EPDS_CONTACT_INFORMATION = gql`
       horaires: $horaires
       score_question_dix: $scoreQuestionDix
       langue: $langue
+      score: $score
+      situation: $situation
+      departement: $departement
+      nb_mois_de_grossesse: $nbMoisDeGrossesse
+      nb_mois_dernier_enfant: $nbMoisDuDernierEnfant
     )
   }
 `
