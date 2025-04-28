@@ -7,6 +7,12 @@ import {
   STORAGE_TEST_DEMOGRAPHIC_DPT_CODE,
   STORAGE_TEST_DEMOGRAPHIC_DPT_LIBELLE,
   URL_CHAT_WHATSAPP,
+  STORAGE_SCORE_QUESTION_DIX,
+  STORAGE_DEMOGRAPHIC_SITUATIONS,
+  STORAGE_SCORE,
+  STORAGE_DEMOGRAPHIC_DPT_CODE,
+  STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE,
+  STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT,
 } from "../../constants/constants"
 import { Form } from "../../constants/specificLabels"
 import { useMutation } from "@apollo/client"
@@ -101,7 +107,22 @@ export const ContactForm = ({
     if (!canSend) return
     const name = `${inputs.inputName.value} [${source}]`
     const phoneNumber = phoneNumberFormatting(inputs.inputPhone.value)
-    const scoreQuestionDix = StorageUtils.getInLocalStorage("scoreQuestionDix")
+    const scoreQuestionDix = StorageUtils.getInLocalStorage(
+      STORAGE_SCORE_QUESTION_DIX
+    )
+    const score = StorageUtils.getInLocalStorage(STORAGE_SCORE)
+    const situation = StorageUtils.getInLocalStorage(
+      STORAGE_DEMOGRAPHIC_SITUATIONS
+    )
+    const departement = StorageUtils.getInLocalStorage(
+      STORAGE_DEMOGRAPHIC_DPT_CODE
+    )
+    const nbMoisDeGrossesse = StorageUtils.getInLocalStorage(
+      STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE
+    )
+    const nbMoisDernierEnfant = StorageUtils.getInLocalStorage(
+      STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT
+    )
 
     await sendEmailContactQuery({
       variables: {
@@ -112,6 +133,11 @@ export const ContactForm = ({
         scoreQuestionDix: scoreQuestionDix,
         telephone: phoneNumber,
         langue: StorageUtils.getLocaleInLocalStorage().libelle_francais,
+        score: score,
+        situation: situation,
+        departement: departement,
+        nbMoisDeGrossesse: nbMoisDeGrossesse,
+        nbMoisDernierEnfant: nbMoisDernierEnfant,
       },
     })
   }
