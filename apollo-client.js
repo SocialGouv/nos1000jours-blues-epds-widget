@@ -97,6 +97,7 @@ export const EPDS_CONTACT_INFORMATION = gql`
     $moyen: String
     $horaires: String
     $scoreQuestionDix: String
+    $langue: String
     $score: String
     $situation: String
     $departement: String
