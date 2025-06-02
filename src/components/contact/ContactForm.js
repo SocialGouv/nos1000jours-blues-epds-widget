@@ -13,6 +13,7 @@ import {
   STORAGE_DEMOGRAPHIC_DPT_CODE,
   STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE,
   STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT,
+  STORAGE_CONTACT_HOURS,
 } from "../../constants/constants"
 import { Form } from "../../constants/specificLabels"
 import { useMutation } from "@apollo/client"
