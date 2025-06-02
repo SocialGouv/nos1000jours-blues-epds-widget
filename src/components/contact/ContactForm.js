@@ -123,11 +123,12 @@ export const ContactForm = ({
     const nbMoisDernierEnfant = StorageUtils.getInLocalStorage(
       STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT
     )
+    const horaires = StorageUtils.getInLocalStorage(STORAGE_CONTACT_HOURS)
 
     await sendEmailContactQuery({
       variables: {
         email: "",
-        horaires: contactHours,
+        horaires: contactHours ?? horaires,
         moyen: contactType,
         prenom: name,
         scoreQuestionDix: scoreQuestionDix,
