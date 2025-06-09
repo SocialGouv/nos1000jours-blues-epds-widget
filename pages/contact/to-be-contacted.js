@@ -22,6 +22,7 @@ import {
   readSourceInUrl,
   updateRadioButtonSelectedInList,
 } from "../../src/utils/main.utils"
+import _ from "lodash"
 
 import { ContactForm } from "../../src/components/contact/ContactForm"
 import * as StorageUtils from "../../src/utils/storage.utils"
@@ -43,7 +44,6 @@ export default function ToBeContacted() {
   const [isPhoneConfirmValid, setIsPhoneConfirmValid] = useState(false)
   const [websiteSource, setWebsiteSource] = useState(false)
   const [canSend, setCanSend] = useState(false)
-  const horaire = StorageUtils.getInLocalStorage(STORAGE_CONTACT_HOURS)
 
   useEffect(() => {
     const source = readSourceInUrl()
@@ -60,7 +60,6 @@ export default function ToBeContacted() {
   useEffect(() => {
     setSmsSelected(itemValueType == RequestContact.type.sms)
     setWhatsappSelected(itemValueType == RequestContact.type.whatsapp)
-    console.log(itemValueType)
   }, [itemValueType])
 
   const cancel = () => {
@@ -202,9 +201,9 @@ export default function ToBeContacted() {
           type="checkbox"
           name="checkbox-hours"
           value={type.id}
-          onChange={(_e) =>
+          onChange={(_e) => {
             setContactHours(updateRadioButtonSelectedInList(contactHours, type))
-          }
+          }}
         >
           <Row className="card-center-img">
             <img
@@ -264,7 +263,7 @@ export default function ToBeContacted() {
             setPropsPhoneValid={setIsPhoneValid}
             setPropsPhoneConfirmValid={setIsPhoneConfirmValid}
             canSend={canSend}
-            contactHours={horaire}
+            contactHours={contactHours}
           />
         </>
       ) : null}
@@ -275,7 +274,7 @@ export default function ToBeContacted() {
             setPropsPhoneValid={setIsPhoneValid}
             setPropsPhoneConfirmValid={setIsPhoneConfirmValid}
             canSend={canSend}
-            contactHours={horaire}
+            contactHours={contactHours}
           />
         </>
       ) : null}
