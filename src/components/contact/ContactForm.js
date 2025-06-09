@@ -59,7 +59,7 @@ export const ContactForm = ({
     StorageUtils.getInLocalStorage(STORAGE_ACTIVATION_CONTACT)
   )
 
-  const checkedHours = _.filter(contactHours, function(item) { return item.isChecked; })
+  const checkedHours = _.filter(contactHours, (item) => item.isChecked)
   const checkedHoursText = checkedHours.map((item) => item.text)
 
   const cancel = () => {
