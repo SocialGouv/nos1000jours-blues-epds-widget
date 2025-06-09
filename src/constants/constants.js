@@ -12,8 +12,8 @@ export const STORAGE_DEMOGRAPHIC_DPT_CODE = "demographicDptCode"
 export const STORAGE_DEMOGRAPHIC_SITUATIONS = "demographicSituations"
 export const STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE =
   "demographicNbMoisDeGrossesse"
-export const STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT =
-  "demographicNbMoisDuDernierEnfant"
+export const STORAGE_DEMOGRAPHIC_NB_MOIS_DERNIER_ENFANT =
+  "demographicNbMoisDernierEnfant"
 
 export const STORAGE_SCORE = "score"
 export const STORAGE_SCORE_LEVEL_MACARON = "scoreLevelForMacaron"

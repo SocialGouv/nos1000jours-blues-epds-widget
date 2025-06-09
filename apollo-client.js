@@ -102,7 +102,7 @@ export const EPDS_CONTACT_INFORMATION = gql`
     $situation: String
     $departement: String
     $nbMoisDeGrossesse: String
-    $nbMoisDuDernierEnfant: String
+    $nbMoisDernierEnfant: String
   ) {
     epdsContact(
       email: $email
@@ -116,7 +116,7 @@ export const EPDS_CONTACT_INFORMATION = gql`
       situation: $situation
       departement: $departement
       nb_mois_de_grossesse: $nbMoisDeGrossesse
-      nb_mois_dernier_enfant: $nbMoisDuDernierEnfant
+      nb_mois_dernier_enfant: $nbMoisDernierEnfant
     )
   }
 `

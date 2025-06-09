@@ -8,7 +8,7 @@ import { WidgetHeader } from "../../src/components/WidgetHeader"
 import {
   STORAGE_DEMOGRAPHIC_DPT_CODE,
   STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE,
-  STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT,
+  STORAGE_DEMOGRAPHIC_NB_MOIS_DERNIER_ENFANT,
   STORAGE_DEMOGRAPHIC_SITUATIONS,
   STORAGE_RESULTS_ID,
   STORAGE_TEST_DEMOGRAPHIC_DPT_CODE,
@@ -229,7 +229,7 @@ export default function DemographicDataSurvey() {
       moisGrossesseInt
     )
     localStorage.setItem(
-      STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT,
+      STORAGE_DEMOGRAPHIC_NB_MOIS_DERNIER_ENFANT,
       lastChildAgeInt
     )
 

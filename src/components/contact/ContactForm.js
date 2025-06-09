@@ -12,7 +12,7 @@ import {
   STORAGE_SCORE,
   STORAGE_DEMOGRAPHIC_DPT_CODE,
   STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE,
-  STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT,
+  STORAGE_DEMOGRAPHIC_NB_MOIS_DERNIER_ENFANT,
   STORAGE_CONTACT_HOURS,
 } from "../../constants/constants"
 import { Form } from "../../constants/specificLabels"
@@ -58,6 +58,9 @@ export const ContactForm = ({
   const activationContact = JSON.parse(
     StorageUtils.getInLocalStorage(STORAGE_ACTIVATION_CONTACT)
   )
+
+  const checkedHours = _.filter(contactHours, function(item) { return item.isChecked; });
+  const checkedHoursText = checkedHours.map((item) => item.text);
 
   const cancel = () => {
     router.back()
@@ -122,14 +125,13 @@ export const ContactForm = ({
       STORAGE_DEMOGRAPHIC_NB_MOIS_DE_GROSSESSE
     )
     const nbMoisDernierEnfant = StorageUtils.getInLocalStorage(
-      STORAGE_DEMOGRAPHIC_NB_MOIS_DU_DERNIER_ENFANT
+      STORAGE_DEMOGRAPHIC_NB_MOIS_DERNIER_ENFANT
     )
-    const horaires = StorageUtils.getInLocalStorage(STORAGE_CONTACT_HOURS)
 
     await sendEmailContactQuery({
       variables: {
         email: "",
-        horaires: contactHours ?? horaires,
+        horaires: checkedHoursText.toString(),
         moyen: contactType,
         prenom: name,
         scoreQuestionDix: scoreQuestionDix,
