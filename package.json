@@ -20,7 +20,7 @@
     "framer-motion": "^10.11.4",
     "graphql": "^16.2.0",
     "html-react-parser": "^3.0.4",
-    "jspdf": "^2.5.1",
+    "jspdf": "^3.0.0",
     "moment": "^2.29.1",
     "next": "12.3.5",
     "next-transpile-modules": "^10.0.0",
