@@ -40,7 +40,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "eslint": "^8.6.0",
-    "eslint-config-next": "12.2.6",
+    "eslint-config-next": "15.5.2",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.7",
     "prettier": "^2.5.1"
@@ -48,10 +48,10 @@
   "resolutions": {
     "@next/swc-android-arm-eabi": "12.3.4",
     "@next/swc-android-arm64": "12.3.4",
-    "@next/swc-darwin-x64": "12.3.4",
+    "@next/swc-darwin-x64": "15.5.2",
     "@next/swc-freebsd-x64": "12.3.4",
-    "@next/swc-linux-arm64-gnu": "12.3.4",
-    "@next/swc-linux-arm64-musl": "12.3.4"
+    "@next/swc-linux-arm64-gnu": "15.5.2",
+    "@next/swc-linux-arm64-musl": "15.5.2"
   },
   "eslintConfig": {
     "rules": {
