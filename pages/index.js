@@ -59,8 +59,11 @@ export default function Home() {
     localStorage.setItem(STORAGE_SOURCE, source)
     TrackerUtils.track(TrackerUtils.CATEG.home, TrackerUtils.ACTION.start)
     localStorage.setItem(STORAGE_TEST_ABC, AbTestingUtils.generateRandomTest())
-    // goToBeforeSurvey()
-    goToDemographicSurvey()
+    // goToDemographicSurvey()
+    // Disabled EPDS widget
+    router.push({
+      pathname: "/not-found",
+    })
   }
 
   const goToBeforeSurvey = async (event) => {
