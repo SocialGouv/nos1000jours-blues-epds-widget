@@ -5,10 +5,16 @@ FROM node:20-alpine AS base
 
 WORKDIR /app
 
-# Ensure the non-root user can write to the workdir.
-RUN mkdir -p /app && chown -R node:node /app
+# Run as uid 1000 (matches the `node` user in the official Node images).
+# We keep HOME explicitly set so pnpm store/cache paths remain stable.
+ENV HOME=/home/node
 
-USER node
+# Ensure uid 1000 can write to the workdir (and its HOME).
+RUN mkdir -p /app && \
+    chown -R 1000:1000 /app && \
+    chown -R 1000:1000 /home/node
+
+USER 1000
 
 FROM base AS build
 
@@ -36,7 +42,7 @@ RUN --mount=type=bind,source=package.json,target=/app/package.json,ro \
 
 # Now copy the full sources (this layer will be invalidated on source changes,
 # which is expected and separate from the dependency warmup layers above).
-COPY --chown=node:node . .
+COPY --chown=1000:1000 . .
 
 ARG NEXT_PUBLIC_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
