@@ -60,6 +60,11 @@
     "@next/swc-linux-arm64-gnu": "12.3.4",
     "@next/swc-linux-arm64-musl": "12.3.4"
   },
+  "pnpm": {
+    "overrides": {
+      "cipher-base": "1.0.7"
+    }
+  },
   "eslintConfig": {
     "rules": {
       "react/prop-types": "warn",
