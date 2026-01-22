@@ -5,8 +5,8 @@
 Cloner le repo, puis :
 
 ```bash
-yarn
-yarn dev
+pnpm install
+pnpm dev
 ```
 
 ## Lancer les test
@@ -14,7 +14,7 @@ yarn dev
 Cloner le repo, puis :
 
 ```bash
-yarn test
+pnpm test
 ```
 
 ## Comment intégrer le widget
