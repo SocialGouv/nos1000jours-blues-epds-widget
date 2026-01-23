@@ -1,0 +1,27 @@
+# Single-package workspace file used for pnpm v10 supply-chain policies.
+
+packages:
+  - '.'
+
+# Supply-chain hardening:
+# - Delay any newly published versions to avoid 0-day compromised releases.
+#   72j = 72 * 24 * 60 = 103680 minutes.
+minimumReleaseAge: 103680
+
+# NOTE: trustPolicy is temporarily disabled because `next@12.3.5` (and some of
+# its `@next/swc-*` platform packages) currently triggers pnpm's
+# ERR_PNPM_TRUST_DOWNGRADE (trust evidence regression between patch versions).
+#
+# Once Next is upgraded to a version with stable trust evidence, re-enable:
+#   trustPolicy: no-downgrade
+
+# pnpm v10: install scripts are disabled by default. Only dependencies listed here
+# are allowed to run their build scripts during installation.
+onlyBuiltDependencies:
+  # Keep this list empty unless we have a proven need for a package install script.
+  # Rationale: pnpm v10 disables lifecycle scripts by default; we only allow the
+  # minimum required for correct builds.
+  []
+
+# Dependencies explicitly kept blocked from running install scripts.
+ignoredBuiltDependencies: []
