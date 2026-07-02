@@ -26,10 +26,12 @@ ENV CI=true
 RUN --mount=type=bind,source=package.json,target=/app/package.json,ro \
     corepack install
 
-# Warm the pnpm store from the lockfile only.
-# IMPORTANT: do not COPY package.json in this layer (package.json changes should
-# not invalidate the fetched store layer).
-RUN --mount=type=bind,source=pnpm-lock.yaml,target=/app/pnpm-lock.yaml,ro \
+# Warm the pnpm store from the lockfile.
+# package.json is bind-mounted so corepack resolves the pinned packageManager —
+# without it this layer runs on corepack's "latest" pnpm (11+ needs node:sqlite,
+# absent from node 20) instead of the pinned one.
+RUN --mount=type=bind,source=package.json,target=/app/package.json,ro \
+    --mount=type=bind,source=pnpm-lock.yaml,target=/app/pnpm-lock.yaml,ro \
     --mount=type=cache,id=pnpm-store,target=/home/node/.local/share/pnpm/store \
     corepack pnpm fetch
 
